@@ -6,8 +6,9 @@ import styled from "styled-components";
 function StarwarsCard(props) {
     return (
         <Container key={props.id}>
-
-            <img className="picture" src={props.hometown} alt={"Hometown"}></img>
+            {/* 
+            <img className="picture" src={props.hometown} alt={"Hometown"}></img> */}
+            <h2>Characters</h2>
             <P>
                 <p>Name: {props.character_name}</p>
                 <p>Gender: {props.gender}</p>
@@ -43,5 +44,6 @@ border-left-color:#eed;
 border-right-color:#eed;
 border-top-color:#ccb;
 color: black;
+font-size: 30px;
 
 `;

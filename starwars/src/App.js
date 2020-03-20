@@ -60,5 +60,5 @@ export default function App() {
 
 
 const Header = styled.h1`
-font-size: 40px;
+font-size: 55px;
 `;
