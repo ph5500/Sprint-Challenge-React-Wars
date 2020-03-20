@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import axios from "axios";
 import StarwarsCard from "./components/StarwarsCard";
+import styled from "styled-components";
 
 // const App = () =>
 export default function App() {
@@ -9,13 +10,13 @@ export default function App() {
 
   useEffect(() => {
     axios
-      .get("http https://swapi.co/api/people")
+      .get(`https://swapi.co/api/people`)
       .then(response => {
         console.log(response.data.results);
         setFilms(response.data.results);
       })
       .catch(error => {
-        console.log(error);
+        // console.log(error);
       });
   }, []);
 
@@ -28,17 +29,17 @@ export default function App() {
 
   return (
     <div className="App">
-      <h1 className="Header">React Wars</h1>
+      <Header>React Wars</Header>
 
       {films.map((charsData, index) => {
-        console.log(charsData);
+        // console.log(charsData);
         return (
           <StarwarsCard
             //insert StarwarsCard here with <StarwarsCard
 
             key={index}
 
-            character={charsData.name}
+            character_name={charsData.name}
             height={charsData.height}
             mass={charsData.mass}
 
@@ -49,3 +50,8 @@ export default function App() {
     </div>
   );
 }
+
+
+const Header = styled.h1`
+font-size: 40px;
+`;
