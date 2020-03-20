@@ -39,9 +39,16 @@ export default function App() {
 
             key={index}
 
+            hometown={charsData.hometown}
+
             character_name={charsData.name}
             height={charsData.height}
             mass={charsData.mass}
+            gender={charsData.gender}
+            hair_color={charsData.hair_color}
+            skin_color={charsData.skin_color}
+            eye_color={charsData.eye_color}
+            birth_year={charsData.birth_year}
 
 
           />

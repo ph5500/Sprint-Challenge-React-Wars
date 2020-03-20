@@ -7,7 +7,7 @@ function StarwarsCard(props) {
     return (
         <Container key={props.id}>
 
-            {/* <img className="picture" src={props.url} alt={"StarWars Characters"}></img> */}
+            <img className="picture" src={props.hometown} alt={"Hometown"}></img>
             <P>
                 <p>Name: {props.character_name}</p>
                 <p>Gender: {props.gender}</p>
