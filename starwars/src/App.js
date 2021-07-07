@@ -1,7 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
+import axios from "axios";
+import StarwarsCard from "./components/StarwarsCard";
+import styled from "styled-components";
 
-const App = () => {
+// const App = () =>
+export default function App() {
+  const [films, setFilms] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`https://swapi.co/api/people`)
+      .then(response => {
+        console.log(response.data.results);
+        setFilms(response.data.results);
+      })
+      .catch(error => {
+        // console.log(error);
+      });
+  }, []);
+
   // Try to think through what state you'll need for this app before starting. Then build out
   // the state properties here.
 
@@ -11,9 +29,36 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1 className="Header">React Wars</h1>
+      <Header>React Wars</Header>
+
+      {films.map((charsData, index) => {
+        // console.log(charsData);
+        return (
+          <StarwarsCard
+            //insert StarwarsCard here with <StarwarsCard
+
+            key={index}
+
+            hometown={charsData.hometown}
+
+            character_name={charsData.name}
+            height={charsData.height}
+            mass={charsData.mass}
+            gender={charsData.gender}
+            hair_color={charsData.hair_color}
+            skin_color={charsData.skin_color}
+            eye_color={charsData.eye_color}
+            birth_year={charsData.birth_year}
+
+
+          />
+        )
+      })}
     </div>
   );
 }
 
-export default App;
+
+const Header = styled.h1`
+font-size: 55px;
+`;
